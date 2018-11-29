@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+import android.util.Log;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -21,9 +22,7 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
-      );
+      return Arrays.<ReactPackage>asList(new MainReactPackage());
     }
 
     @Override
@@ -41,5 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    int superComplexRandomNumber = SuperComplexRandomNumber.getRandomNumber(20, 10000);
+    Log.d("ReactJSBlr", superComplexRandomNumber + "");
   }
 }
