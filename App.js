@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import SuperComplexRandomNumber from './SuperComplexRandomNumber';
 
 export default class App extends Component<Props> {
 
@@ -20,6 +21,9 @@ export default class App extends Component<Props> {
 
   getRandomNumber = () => {
     console.log('Call your native module here')
+    SuperComplexRandomNumber.getRandomNumber(1, 10000, (randomNumber) => {
+      this.setState({ randomNumber });
+    });
   }
 
   render() {
